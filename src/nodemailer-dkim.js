@@ -12,9 +12,9 @@ var util = require('util');
  * @returns {Function} handler for 'send'
  */
 module.exports.signer = function(options) {
-    return function(mail, callback){
+    return function(mail, callback) {
         mail.message.use(new DKIMSigner(options));
-        callback();
+        callback(null, mail);
     };
 };
 
