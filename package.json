@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-dkim",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Sign Nodemailer DKIM headers",
   "main": "src/nodemailer-dkim",
   "scripts": {
