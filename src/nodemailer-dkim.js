@@ -14,7 +14,7 @@ var util = require('util');
 module.exports.signer = function(options) {
     return function(mail, callback) {
         mail.message.transform(new DKIMSigner(options));
-        callback(null, mail);
+        setImmediate(callback);
     };
 };
 
