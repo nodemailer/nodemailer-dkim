@@ -16,10 +16,10 @@ Load the `signer` function
 var signer = require('nodemailer-dkim').signer;
 ```
 
-Attach it as a 'send' handler for a nodemailer transport object
+Attach it as a 'stream' handler for a nodemailer transport object
 
 ```javascript
-nodemailerTransport.use('send', signer(options))
+nodemailerTransport.use('stream', signer(options))
 ```
 
 Where

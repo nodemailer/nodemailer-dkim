@@ -5,11 +5,11 @@ var Transform = require('stream').Transform;
 var util = require('util');
 
 /**
- * Nodemailer plugin for the 'send' event. Caches the entire message to memory,
+ * Nodemailer plugin for the 'stream' event. Caches the entire message to memory,
  * signes it and passes on
  *
  * @param {Object} options DKIM options
- * @returns {Function} handler for 'send'
+ * @returns {Function} handler for 'stream'
  */
 module.exports.signer = function(options) {
     return function(mail, callback) {
