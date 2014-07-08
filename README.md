@@ -19,7 +19,7 @@ var signer = require('nodemailer-dkim').signer;
 Attach it as a 'stream' handler for a nodemailer transport object
 
 ```javascript
-nodemailerTransport.use('stream', signer(options))
+transporter.use('stream', signer(options))
 ```
 
 Where
@@ -33,6 +33,26 @@ Where
 All messages transmitted through this transport objects are from now on DKIM signed.
 
 > **NB!** If several header fields with the same name exists, only the last one (the one in the bottom) is signed.
+
+## Example
+
+```javascript
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport();
+transporter.use('stream', require('nodemailer-dkim').signer({
+    domainName: 'kreata.ee',
+    keySelector: 'test',
+    privateKey: fs.readFileSync('private.pem')
+}));
+transporter.sendMail({
+    from: 'sender@address',
+    to: 'receiver@address',
+    subject: 'hello',
+    text: 'hello world!'
+}, function(err, response) {
+    console.log(err || response);
+});
+```
 
 ## License
 
