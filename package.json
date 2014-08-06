@@ -1,6 +1,6 @@
 {
   "name": "nodemailer-dkim",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Sign Nodemailer DKIM headers",
   "main": "src/nodemailer-dkim",
   "scripts": {
@@ -27,6 +27,7 @@
     "chai": "~1.8.1",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.8.0",
-    "grunt-mocha-test": "~0.10.0"
+    "grunt-mocha-test": "~0.10.0",
+    "sinon": "^1.10.3"
   }
 }

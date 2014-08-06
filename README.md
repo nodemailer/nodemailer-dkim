@@ -50,7 +50,38 @@ transporter.sendMail({
     subject: 'hello',
     text: 'hello world!'
 }, function(err, response) {
-    console.log(err || response);
+    console.log(err || response);
+});
+```
+
+### Configration verification
+
+You can use this module to check if your configuration is correct and the private key matches the public key listed in DNS
+
+```javascript
+var verifyKeys = require('nodemailer-dkim').verifyKeys;
+verifyKeys(options, callback);
+```
+
+Where
+
+  * **options** is the same option object you use for the `signer` function
+  * **callback** is the callback to run once verification is completed
+
+**Example**
+
+```javascript
+verifyKeys({
+    domainName: 'kreata.ee',
+    keySelector: 'test',
+    privateKey: fs.readFileSync('private.pem')
+}, function(err, success){
+    if(err){
+        console.log('Verification failed');
+        console.log(err);
+    }else if(success){
+        console.log('Verification successful, keys match');
+    }
 });
 ```
 
