@@ -16,7 +16,9 @@ var punycode = require('punycode');
  */
 module.exports.signer = function(options) {
     return function(mail, callback) {
-        mail.message.transform(new DKIMSigner(options));
+        mail.message.transform(function() {
+            return new DKIMSigner(options);
+        });
         setImmediate(callback);
     };
 };
@@ -54,7 +56,7 @@ DKIMSigner.prototype._transform = function(chunk, encoding, done) {
  */
 DKIMSigner.prototype._flush = function(done) {
     var signature = dkimSign(this._message, this.options);
-    this.push(new Buffer([].concat(signature || []).concat(this._message ||  []).join('\r\n'), 'utf-8'));
+    this.push(new Buffer([].concat(signature || []).concat(this._message || []).join('\r\n'), 'utf-8'));
     done();
 };
 
@@ -70,7 +72,7 @@ function verifyKeys(options, callback) {
             return callback(err);
         }
 
-        if (!result ||  !result.length) {
+        if (!result || !result.length) {
             return callback(new Error('Selector not found (%s)', domain));
         }
 
