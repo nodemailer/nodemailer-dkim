@@ -85,7 +85,7 @@ function verifyKeys(options, callback) {
             data[key] = val;
         });
 
-        if (!/^DKIM/i.test(data.v) || !data.p) {
+        if (!data.p) {
             return callback(new Error('DNS TXT record does not seem to be a DKIM value', domain));
         }
 
