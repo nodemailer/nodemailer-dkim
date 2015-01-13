@@ -80,8 +80,8 @@ function verifyKeys(options, callback) {
         (result[0] || '').toString().split(/;/).forEach(function(row) {
             var key, val;
             row = row.split('=');
-            key = row.shift();
-            val = row.join('=');
+            key = (row.shift() || '').toString().trim();
+            val = (row.join('=') || '').toString().trim();
             data[key] = val;
         });
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.2 2015-01-13
+
+Trim whitespace around keys and values in the TXT record when verifying DKIM setup
+
 ## v1.0.0 2014-09-12
 
 Set transform stream as a callable function, this allows to use the same mail object several times (new DKIMSigner is created for every instance).
