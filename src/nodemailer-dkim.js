@@ -77,7 +77,7 @@ function verifyKeys(options, callback) {
         }
 
         var data = {};
-        (result[0].join('') || '').toString().split(/;/).forEach(function(row) {
+        [].concat(result[0] || []).join('').split(/;/).forEach(function(row) {
             var key, val;
             row = row.split('=');
             key = (row.shift() || '').toString().trim();

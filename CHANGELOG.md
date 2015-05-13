@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.3 2015-05-13
+
+Fixed an issue with long public keys (https://github.com/andris9/nodemailer-dkim/pull/4)
+
 ## v1.0.2 2015-01-13
 
 Trim whitespace around keys and values in the TXT record when verifying DKIM setup
