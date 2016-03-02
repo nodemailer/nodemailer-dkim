@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.0.4 2016-03-02
+
+Bumped dependencies to fix too long lines issue
+
 ## v1.0.3 2015-05-13
 
 Fixed an issue with long public keys (https://github.com/andris9/nodemailer-dkim/pull/4)
